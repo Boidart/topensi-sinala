@@ -15,8 +15,8 @@ urlpatterns = [
     url(r'^add/ajouter_type/$', login_required(AjouterType.as_view())),
     url(r'^add/ajouter_client/$', login_required(AjouterClient.as_view())),
     url(r'^add/ajouter_info/$', login_required(AjouterInfo.as_view())),
-    url(r'^please_log/$', PleaseLog.as_view()),
-    url(r'^update/delete/$', DeleteInfo.as_view()),
-    url(r'^update/maj/$', UpdateInfo.as_view()),
+    url(r'^please_log/$', login_required(PleaseLog.as_view())),
+    url(r'^update/delete/$', login_required(DeleteInfo.as_view())),
+    url(r'^update/maj/$', login_required(UpdateInfo.as_view())),
 
 ]
