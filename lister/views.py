@@ -46,6 +46,7 @@ class LoginView(TemplateView):
         messages.success(request, 'Connexion réussie')
         return HttpResponseRedirect( settings.LOGIN_REDIRECT_URL )
     else:
+        messages.error(request, 'Mot de passe incorrect')
         return HttpResponseRedirect( settings.LOGIN_REDIRECT_URL )
     return render(request, self.template_name)
   def get(self, request, **kwargs):
