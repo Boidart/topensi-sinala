@@ -102,7 +102,7 @@ class AjouterType(TemplateView):
     try:
       t = Type(nom=typenom)
       t.save()
-      messages.success(request, 'Le type a bien été ajoutée')
+      messages.success(request, 'Le type a bien été ajouté')
       return HttpResponseRedirect( "/add/" )
     except:
       messages.error(request, "Impossible de créer un type")
@@ -115,7 +115,7 @@ class AjouterClient(TemplateView):
     try:
       c = Client(nom=clientnom)
       c.save()
-      messages.success(request, 'Le client a bien été ajoutée')
+      messages.success(request, 'Le client a bien été ajouté')
       return HttpResponseRedirect( "/add/" )
     except:
       messages.error(request, "Impossible de créer un client")
@@ -129,13 +129,13 @@ class AjouterInfo(TemplateView):
       ipaddress.ip_address(ip)
     except:
       messages.error(request, 'Mauvais format IP')
-      return HttpResponseRedirect( "/update/" )
+      return HttpResponseRedirect( "/add/" )
     url = request.POST.get('url', False)
     try:
       URLValidator()(url)
     except:
       messages.error(request, 'Mauvaise URL')
-      return HttpResponseRedirect( "/update/" )    
+      return HttpResponseRedirect( "/add/" )    
     clientnom = request.POST.get('client', False)
     hostname = request.POST.get('hostname', False)
     typenom = request.POST.get('type', False)
